@@ -8,16 +8,17 @@ def init_database():
         db.create_all()
         print("[OK] Database tables created successfully.")
 
-        # Seed default admin user if not already present
-        admin = AdminUser.query.filter_by(username='admin').first()
-        if not admin:
+        # Seed default admin user if no admin exists
+        if AdminUser.query.count() == 0:
+            default_user = os.environ.get('ADMIN_USERNAME', 'admin')
+            default_pass = os.environ.get('ADMIN_PASSWORD', 'Admin@JarmFabs2026')
             admin = AdminUser(
-                username='admin',
+                username=default_user,
                 email='abujabarmubarak24@gmail.com'
             )
-            admin.set_password('Admin@JarmFabs2026')
+            admin.set_password(default_pass)
             db.session.add(admin)
-            print("[OK] Default admin created (username: 'admin', password: 'Admin@JarmFabs2026')")
+            print(f"[OK] Initial admin created (username: '{default_user}')")
 
         # Seed initial clients if none exist
         if Client.query.count() == 0:
