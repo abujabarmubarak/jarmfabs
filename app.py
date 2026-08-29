@@ -489,6 +489,44 @@ def admin_messages():
     messages = ContactMessage.query.order_by(ContactMessage.created_at.desc()).all()
     return render_template('admin/messages.html', messages=messages)
 
+# ---- Admin Account Settings ----
+@app.route('/admin/settings', methods=['GET', 'POST'])
+@admin_required
+def admin_settings():
+    admin = AdminUser.query.get(session.get('admin_id'))
+    if not admin:
+        flash('Admin account not found.', 'error')
+        return redirect(url_for('admin_login'))
+
+    if request.method == 'POST':
+        new_username = request.form.get('username', '').strip()
+        current_password = request.form.get('current_password', '')
+        new_password = request.form.get('new_password', '').strip()
+        confirm_password = request.form.get('confirm_password', '').strip()
+
+        if not admin.check_password(current_password):
+            flash('Current password is incorrect.', 'error')
+            return render_template('admin/settings.html', current_admin=admin)
+
+        if new_username:
+            admin.username = new_username
+            session['admin_username'] = new_username
+
+        if new_password:
+            if new_password != confirm_password:
+                flash('New passwords do not match.', 'error')
+                return render_template('admin/settings.html', current_admin=admin)
+            if len(new_password) < 6:
+                flash('New password must be at least 6 characters.', 'error')
+                return render_template('admin/settings.html', current_admin=admin)
+            admin.set_password(new_password)
+
+        db.session.commit()
+        flash('Admin credentials updated successfully!', 'success')
+        return redirect(url_for('admin_settings'))
+
+    return render_template('admin/settings.html', current_admin=admin)
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()

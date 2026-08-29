@@ -66,11 +66,10 @@ Open your browser at [http://127.0.0.1:5000](http://127.0.0.1:5000).
 
 ---
 
-## 🔐 Admin Credentials
+## 🔐 Admin Access
 
-- **URL**: [http://127.0.0.1:5000/admin/login](http://127.0.0.1:5000/admin/login)
-- **Username**: `admin`
-- **Password**: `Admin@JarmFabs2026`
+- **URL**: `/admin/login`
+- **Manage Credentials**: Use `python change_admin.py` or set `ADMIN_USERNAME` and `ADMIN_PASSWORD` in your `.env` file.
 
 ---
 
