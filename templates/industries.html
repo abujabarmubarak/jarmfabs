@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% block title %}Target Industries — Domain-Specific Software | JarmFabs Technologies{% endblock %}
+
+{% block content %}
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Sector Expertise</span>
+    <h1 class="page-hero-title">Industries We Engineer For</h1>
+    <p class="page-hero-desc">
+      Every industry carries its own regulatory pressures, operational flows, and data dynamics. We build domain-specific software engineered around how your field actually functions.
+    </p>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIES GRID ============ -->
+<section class="section">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px;">
+
+      <!-- Industry 1 -->
+      <div class="service-card">
+        <span class="service-num">01 / SECTOR</span>
+        <h3>Higher Education &amp; Institutions</h3>
+        <p>Comprehensive campus management ERP, student life-cycle portals, fee collection automation, and academic department workflows built for colleges and schools.</p>
+        <div style="margin-top: 14px;">
+          <span class="client-tag">Campus ERP</span>
+          <span class="client-tag">Student Portals</span>
+        </div>
+      </div>
+
+      <!-- Industry 2 -->
+      <div class="service-card">
+        <span class="service-num">02 / SECTOR</span>
+        <h3>Healthcare &amp; Clinical Centers</h3>
+        <p>Electronic health record workflows, appointment booking systems, pharmacy stock control, and patient engagement tools designed with data confidentiality.</p>
+        <div style="margin-top: 14px;">
+          <span class="client-tag">EHR Systems</span>
+          <span class="client-tag">Patient Apps</span>
+        </div>
+      </div>
+
+      <!-- Industry 3 -->
+      <div class="service-card">
+        <span class="service-num">03 / SECTOR</span>
+        <h3>Retail &amp; E-Commerce</h3>
+        <p>Omnichannel retail platforms, point-of-sale (POS) systems, centralized inventory synchronization across stores, and customer loyalty engines.</p>
+        <div style="margin-top: 14px;">
+          <span class="client-tag">Omnichannel POS</span>
+          <span class="client-tag">Inventory Sync</span>
+        </div>
+      </div>
+
+      <!-- Industry 4 -->
+      <div class="service-card">
+        <span class="service-num">04 / SECTOR</span>
+        <h3>Construction &amp; Real Estate</h3>
+        <p>Project milestone trackers, contractor billing, equipment dispatch management, materials procurement, and property portfolio listing apps.</p>
+        <div style="margin-top: 14px;">
+          <span class="client-tag">Project Tracking</span>
+          <span class="client-tag">Procurement</span>
+        </div>
+      </div>
+
+      <!-- Industry 5 -->
+      <div class="service-card">
+        <span class="service-num">05 / SECTOR</span>
+        <h3>Finance &amp; Professional Services</h3>
+        <p>Document vaults, client portal collaboration tools, automated invoicing, compliance audit trails, and financial analytics.</p>
+        <div style="margin-top: 14px;">
+          <span class="client-tag">Client Portals</span>
+          <span class="client-tag">Audit Trails</span>
+        </div>
+      </div>
+
+      <!-- Industry 6 -->
+      <div class="service-card">
+        <span class="service-num">06 / SECTOR</span>
+        <h3>Manufacturing &amp; Production</h3>
+        <p>Bill-of-materials (BOM) management, assembly line tracking, batch traceability, predictive maintenance alerts, and vendor procurement.</p>
+        <div style="margin-top: 14px;">
+          <span class="client-tag">Batch Tracking</span>
+          <span class="client-tag">BOM Systems</span>
+        </div>
+      </div>
+
+      <!-- Industry 7 -->
+      <div class="service-card">
+        <span class="service-num">07 / SECTOR</span>
+        <h3>Logistics &amp; Supply Chain</h3>
+        <p>Fleet tracking, route optimization tools, dispatch scheduling, consignment manifests, and real-time delivery confirmation systems.</p>
+        <div style="margin-top: 14px;">
+          <span class="client-tag">Fleet Telematics</span>
+          <span class="client-tag">Dispatch</span>
+        </div>
+      </div>
+
+      <!-- Industry 8 -->
+      <div class="service-card">
+        <span class="service-num">08 / SECTOR</span>
+        <h3>Hospitality &amp; Travel</h3>
+        <p>Guest reservation engines, dining and room billing, housekeeping management, staff roster coordination, and multi-channel booking sync.</p>
+        <div style="margin-top: 14px;">
+          <span class="client-tag">Booking Engines</span>
+          <span class="client-tag">Guest Portals</span>
+        </div>
+      </div>
+
+      <!-- Industry 9 -->
+      <div class="service-card">
+        <span class="service-num">09 / SECTOR</span>
+        <h3>Startups &amp; Emerging Tech</h3>
+        <p>Agile MVP development, cloud architecture, fast iteration cycles, and investor-ready technological foundations for modern founders.</p>
+        <div style="margin-top: 14px;">
+          <span class="client-tag">Rapid MVP</span>
+          <span class="client-tag">SaaS Scale</span>
+        </div>
+      </div>
+
+      <!-- Industry 10 -->
+      <div class="service-card">
+        <span class="service-num">10 / SECTOR</span>
+        <h3>EdTech &amp; Learning Platforms</h3>
+        <p>Interactive learning portals, online video lectures, automated quizzes, certificates of completion, and cohort progress tracking.</p>
+        <div style="margin-top: 14px;">
+          <span class="client-tag">LMS Architectures</span>
+          <span class="client-tag">Course Portals</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align: center; margin-top: 54px;">
+      <p style="color: var(--charcoal-70); font-size: 1.05rem; margin-bottom: 24px;">Don't see your specific sector listed? We design custom software for specialized operational domains.</p>
+      <a href="{{ url_for('contact') }}" class="btn btn-primary">Discuss Your Industry Solution &rarr;</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

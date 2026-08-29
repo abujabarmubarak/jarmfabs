@@ -1,0 +1,228 @@
+{% extends 'base.html' %}
+
+{% block title %}JarmFabs Technologies — Where Creative Charm Meets Exceptional Technology{% endblock %}
+
+{% block content %}
+<!-- ============ HERO SECTION ============ -->
+<section class="home-hero">
+  <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+  <div class="container hero-content">
+    <span class="eyebrow">Charm &amp; Technology, Fused</span>
+    <h1 class="hero-title">
+      Where <em>Creative Charm</em><br />
+      Meets Exceptional Technology.
+    </h1>
+    <p class="hero-sub">
+      JarmFabs Technologies transforms ambitious ideas into intelligent digital solutions — delivering custom software, ERP systems, AI automation, web & mobile applications, and SaaS products.
+    </p>
+    <div class="hero-actions">
+      <a href="{{ url_for('services') }}" class="btn btn-primary">Explore Our Solutions</a>
+      <a href="{{ url_for('contact') }}" class="btn btn-ghost">Start a Conversation</a>
+      <a href="https://wa.me/{{ company_phone_clean }}?text=Hello%20JarmFabs%20Technologies" target="_blank" class="btn btn-whatsapp">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.07l-.29-.17-3.12.82.83-3.04-.19-.31a8.16 8.16 0 0 1-1.25-4.47c0-4.54 3.7-8.25 8.24-8.25m4.52 11.64c-.25.7-1.44 1.3-2 1.35-.52.05-1.19.07-1.92-.17-.46-.15-1.06-.35-1.83-.69-3.23-1.4-5.32-4.66-5.48-4.88-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.31.63-.39.84-.39.21 0 .42.01.6.02.2.01.46-.07.72.55.26.63.89 2.17.97 2.33.08.16.13.35.03.56-.11.21-.16.34-.32.53-.16.19-.34.42-.48.56-.16.16-.33.33-.14.66.19.33.84 1.38 1.8 2.24 1.24 1.1 2.28 1.44 2.61 1.6.33.16.52.14.72-.09.2-.23.84-.98 1.07-1.32.23-.34.46-.28.77-.17.31.11 1.97.93 2.31 1.1.34.17.57.25.65.39.08.14.08.82-.17 1.52"/></svg>
+        <span>Instant WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CORPORATE PILLARS ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Operating Philosophy</span>
+      <h2 class="section-title">Built on Craft and Rigor</h2>
+      <p class="section-desc">Technology should never be merely functional. It must be considered, distinctive, and engineered to standard.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 26px;">
+      <div class="service-card">
+        <span class="service-num">01 / PILLAR</span>
+        <h3>Engineering Rigor</h3>
+        <p>Architectures designed for resilience, modular growth, and data integrity from line one. Every build undergoes rigorous testing and standard code audits.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">02 / PILLAR</span>
+        <h3>Design Craft</h3>
+        <p>Interfaces shaped with human psychology in mind — intuitive, memorable, and visually refined. We balance aesthetic elegance with straightforward clarity.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">03 / PILLAR</span>
+        <h3>Measured Growth</h3>
+        <p>Every technology engagement is oriented toward business outcomes — efficiency, team velocity, and durable competitive advantage for our partners.</p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="{{ url_for('explore') }}" class="btn btn-ghost">Learn More About JarmFabs &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES PREVIEW ============ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Disciplines</span>
+      <h2 class="section-title">A Full Ecosystem of Digital Capability</h2>
+      <p class="section-desc">Eight interlocking disciplines — engaged individually or together as one cohesive product build.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-num">01</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <h3>ERP &amp; Business Solutions</h3>
+        <p>Centralize operations, inventory, finance, and human resources with custom enterprise software tailored to your workflow.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">02</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+        <h3>Custom Software</h3>
+        <p>Bespoke web and cloud applications engineered around your exact requirements when off-the-shelf software falls short.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">03</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <h3>Web Development</h3>
+        <p>High-performance, search-engine-optimized, and responsive web applications built for speed, security, and accessibility.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">04</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        <h3>Mobile App Development</h3>
+        <p>Fast, intuitive Android, iOS, and cross-platform mobile apps providing seamless experiences for end-users and teams.</p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 44px;">
+      <a href="{{ url_for('services') }}" class="btn btn-primary">View All 8 Services with In-Depth Specifications &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REAL CLIENT PARTNERS (FROM DATABASE) ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Client Partners</span>
+      <h2 class="section-title">Organizations We've Engineered For</h2>
+      <p class="section-desc">A record of trust, not a headline number — real organizations and academic institutions we partner with.</p>
+    </div>
+
+    <div class="clients-grid">
+      {% for client in clients %}
+        <div class="client-card">
+          <div class="client-badge">
+            {% if client.logo_filename %}
+              <img src="{{ client.logo_filename | media_url('clients') }}" alt="{{ client.name }} Logo" />
+            {% else %}
+              <span>{{ client.name[:3] | upper }}</span>
+            {% endif %}
+          </div>
+          <h3 class="client-name">{{ client.name }}</h3>
+          <p class="client-location">{{ client.location or 'Partner' }}</p>
+          {% if client.description %}
+            <p class="client-desc">{{ client.description }}</p>
+          {% endif %}
+          <span class="client-tag">{{ client.tag }}</span>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="{{ url_for('clients') }}" class="btn btn-ghost">Explore Client Portfolio &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHOTO GALLERY SHOWCASE ============ -->
+{% if recent_photos %}
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Showcase &amp; Moments</span>
+      <h2 class="section-title">Photo Gallery</h2>
+      <p class="section-desc">Visual glimpses of our projects, team milestones, technology showcases, and company culture.</p>
+    </div>
+
+    <div class="gallery-grid">
+      {% for photo in recent_photos %}
+        <div class="gallery-card" data-img-src="{{ photo.filename | media_url('gallery') }}" data-title="{{ photo.title }}" data-caption="{{ photo.caption }}">
+          <img src="{{ photo.filename | media_url('gallery') }}" alt="{{ photo.title }}" loading="lazy" />
+          <div class="gallery-overlay">
+            <span class="gallery-cat">{{ photo.category }}</span>
+            <h4 class="gallery-title">{{ photo.title }}</h4>
+            {% if photo.caption %}
+              <p class="gallery-caption">{{ photo.caption }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="{{ url_for('gallery') }}" class="btn btn-primary">Browse Full Photo Gallery &rarr;</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ============ ACTIVE CAREERS SNIPPET ============ -->
+{% if active_jobs %}
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Join Our Team</span>
+      <h2 class="section-title">Current Career Openings</h2>
+      <p class="section-desc">We are always looking for curious engineers and creative minds to build impactful technology.</p>
+    </div>
+
+    <div class="jobs-list">
+      {% for job in active_jobs %}
+        <div class="job-card">
+          <div class="job-info">
+            <h3>{{ job.title }}</h3>
+            <div class="job-meta">
+              <span class="job-pill dept">{{ job.department }}</span>
+              <span class="job-pill">{{ job.location }}</span>
+              <span class="job-pill">{{ job.job_type }}</span>
+              <span class="job-pill">Exp: {{ job.experience }}</span>
+            </div>
+            <p class="job-desc-snippet">{{ job.description }}</p>
+          </div>
+          <div>
+            <a href="{{ url_for('careers') }}" class="btn btn-sm btn-primary">View &amp; Apply</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div style="text-align: center; margin-top: 36px;">
+      <a href="{{ url_for('careers') }}" class="btn btn-ghost">View All Openings &amp; Benefits &rarr;</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ============ CTA BANNER ============ -->
+<section class="page-hero-dark" style="padding: 80px 0; text-align: center;">
+  <div class="container" style="max-width: 720px;">
+    <span class="eyebrow light">Let's Connect</span>
+    <h2 class="section-title light">Ready to Build Something Exceptional?</h2>
+    <p class="section-desc light" style="margin-inline: auto; margin-bottom: 32px;">
+      Whether you need an enterprise ERP, custom mobile application, AI automation, or a dedicated software partner — we are here to collaborate.
+    </p>
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
+      <a href="{{ url_for('contact') }}" class="btn btn-primary" style="background: var(--gold); border-color: var(--gold); color: var(--teal-deep);">Start a Conversation</a>
+      <a href="https://wa.me/{{ company_phone_clean }}" target="_blank" class="btn btn-whatsapp">Chat on WhatsApp</a>
+      <a href="tel:{{ company_phone }}" class="btn btn-outline-light">Call {{ company_phone }}</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

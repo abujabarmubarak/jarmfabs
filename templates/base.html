@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>{% block title %}JarmFabs Technologies — IT & Digital Solutions Company{% endblock %}</title>
+    <meta name="description" content="JarmFabs Technologies is an IT and digital solutions company in Tenkasi, Tamil Nadu, India — delivering ERP systems, custom software, web and mobile apps, AI automation, SaaS products and digital marketing." />
+    <meta name="keywords" content="JarmFabs Technologies, JarmFabs, IT company in Tenkasi, software development company in Tenkasi, ERP software development, custom software development company India, web development company Tamil Nadu, AI automation solutions, SaaS product development" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="geo.region" content="IN-TN" />
+    <meta name="geo.placename" content="Kadayanallur, Tenkasi, Tamil Nadu" />
+    <link rel="canonical" href="https://www.jarmfabs.com{{ request.path }}" />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="JarmFabs Technologies" />
+    <meta property="og:title" content="JarmFabs Technologies — Where Creative Charm Meets Exceptional Technology" />
+    <meta property="og:description" content="An IT and digital solutions company in Tenkasi, Tamil Nadu — ERP, custom software, web & mobile apps, AI automation, SaaS and digital marketing." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.jarmfabs.com{{ request.path }}" />
+    <meta property="og:image" content="{{ url_for('static', filename='images/JarmFabs.png', _external=True) }}" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JarmFabs Technologies — Where Creative Charm Meets Exceptional Technology" />
+    <meta name="twitter:description" content="An IT and digital solutions company in Tenkasi, Tamil Nadu — ERP, custom software, web & mobile apps, AI automation, SaaS and digital marketing." />
+    <meta name="twitter:image" content="{{ url_for('static', filename='images/JarmFabs.png', _external=True) }}" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/JarmFabs.png') }}" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    {% block extra_css %}{% endblock %}
+  </head>
+  <body>
+    <!-- ============ NAVIGATION ============ -->
+    <header class="site-nav" id="siteNav">
+      <div class="nav-inner">
+        <a href="{{ url_for('index') }}" class="nav-brand" aria-label="JarmFabs Technologies Home">
+          <img src="{{ url_for('static', filename='images/JarmFabs.png') }}" alt="JarmFabs Technologies Logo" class="nav-logo-mark" />
+          <div class="nav-brand-text">
+            <span>JarmFabs</span>
+            <span class="nav-brand-sub">TECHNOLOGIES</span>
+          </div>
+        </a>
+
+        <nav class="nav-links" aria-label="Primary Navigation">
+          <a href="{{ url_for('index') }}" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+          <a href="{{ url_for('explore') }}" class="nav-link {% if request.path == '/explore' %}active{% endif %}">Explore Us</a>
+          <a href="{{ url_for('services') }}" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
+          <a href="{{ url_for('industries') }}" class="nav-link {% if request.path == '/industries' %}active{% endif %}">Industries</a>
+          <a href="{{ url_for('clients') }}" class="nav-link {% if request.path == '/clients' %}active{% endif %}">Clients</a>
+          <a href="{{ url_for('innovation') }}" class="nav-link {% if request.path == '/innovation' %}active{% endif %}">Innovation</a>
+          <a href="{{ url_for('insights') }}" class="nav-link {% if request.path == '/insights' %}active{% endif %}">Insights</a>
+          <a href="{{ url_for('careers') }}" class="nav-link {% if request.path == '/careers' %}active{% endif %}">Careers</a>
+          <a href="{{ url_for('gallery') }}" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
+          <a href="{{ url_for('contact') }}" class="nav-link {% if request.path == '/contact' %}active{% endif %}">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          {% if is_admin %}
+            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-sm btn-primary" style="background: var(--gold); border-color: var(--gold);">Admin Panel</a>
+          {% endif %}
+          <a href="https://wa.me/{{ company_phone_clean }}?text=Hello%20JarmFabs%20Technologies%2C%20I%20am%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-whatsapp" aria-label="Quick Chat on WhatsApp">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.07l-.29-.17-3.12.82.83-3.04-.19-.31a8.16 8.16 0 0 1-1.25-4.47c0-4.54 3.7-8.25 8.24-8.25m4.52 11.64c-.25.7-1.44 1.3-2 1.35-.52.05-1.19.07-1.92-.17-.46-.15-1.06-.35-1.83-.69-3.23-1.4-5.32-4.66-5.48-4.88-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.31.63-.39.84-.39.21 0 .42.01.6.02.2.01.46-.07.72.55.26.63.89 2.17.97 2.33.08.16.13.35.03.56-.11.21-.16.34-.32.53-.16.19-.34.42-.48.56-.16.16-.33.33-.14.66.19.33.84 1.38 1.8 2.24 1.24 1.1 2.28 1.44 2.61 1.6.33.16.52.14.72-.09.2-.23.84-.98 1.07-1.32.23-.34.46-.28.77-.17.31.11 1.97.93 2.31 1.1.34.17.57.25.65.39.08.14.08.82-.17 1.52"/>
+            </svg>
+            <span>WhatsApp</span>
+          </a>
+          <button class="nav-burger" id="navBurger" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <div class="drawer-backdrop" id="drawerBackdrop"></div>
+      <div class="drawer-panel" role="dialog" aria-modal="true">
+        <div>
+          <div class="drawer-top">
+            <div class="nav-brand">
+              <img src="{{ url_for('static', filename='images/JarmFabs.png') }}" alt="Logo" class="nav-logo-mark" />
+              <div class="nav-brand-text">
+                <span>JarmFabs</span>
+                <span class="nav-brand-sub">TECHNOLOGIES</span>
+              </div>
+            </div>
+            <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+          </div>
+          <nav class="drawer-links">
+            <a href="{{ url_for('index') }}" class="drawer-link {% if request.path == '/' %}active{% endif %}">Home</a>
+            <a href="{{ url_for('explore') }}" class="drawer-link {% if request.path == '/explore' %}active{% endif %}">Explore Us</a>
+            <a href="{{ url_for('services') }}" class="drawer-link {% if request.path == '/services' %}active{% endif %}">Services</a>
+            <a href="{{ url_for('industries') }}" class="drawer-link {% if request.path == '/industries' %}active{% endif %}">Industries</a>
+            <a href="{{ url_for('clients') }}" class="drawer-link {% if request.path == '/clients' %}active{% endif %}">Clients</a>
+            <a href="{{ url_for('innovation') }}" class="drawer-link {% if request.path == '/innovation' %}active{% endif %}">Innovation</a>
+            <a href="{{ url_for('insights') }}" class="drawer-link {% if request.path == '/insights' %}active{% endif %}">Insights</a>
+            <a href="{{ url_for('careers') }}" class="drawer-link {% if request.path == '/careers' %}active{% endif %}">Careers</a>
+            <a href="{{ url_for('gallery') }}" class="drawer-link {% if request.path == '/gallery' %}active{% endif %}">Photo Gallery</a>
+            <a href="{{ url_for('contact') }}" class="drawer-link {% if request.path == '/contact' %}active{% endif %}">Contact Us</a>
+            {% if is_admin %}
+              <a href="{{ url_for('admin_dashboard') }}" class="drawer-link" style="color: var(--gold);">Admin Dashboard</a>
+            {% endif %}
+          </nav>
+        </div>
+        <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 12px;">
+          <a href="https://wa.me/{{ company_phone_clean }}" target="_blank" class="btn btn-whatsapp" style="width: 100%;">Chat on WhatsApp</a>
+          <a href="tel:{{ company_phone }}" class="btn btn-primary" style="width: 100%;">Call {{ company_phone }}</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ FLASH NOTIFICATIONS ============ -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-container">
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category if category != 'error' else 'error' }}">
+              <span>{{ message }}</span>
+              <button onclick="this.parentElement.remove()" style="font-size: 1.2rem; cursor: pointer; color: inherit;">&times;</button>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <main id="main">
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <h3>JarmFabs Technologies</h3>
+          <p>{{ company_tagline }}</p>
+          <p style="margin-top: 14px; font-size: 0.86rem; color: rgba(247, 242, 230, 0.6);">
+            Registered Office: 263B Rahumaniyapuram 8th Street, Krishnapuram, Kadayanallur, Tenkasi, Tamil Nadu, India.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="{{ url_for('explore') }}">Corporate Overview</a></li>
+            <li><a href="{{ url_for('services') }}">Services Ecosystem</a></li>
+            <li><a href="{{ url_for('industries') }}">Target Industries</a></li>
+            <li><a href="{{ url_for('clients') }}">Client Partners</a></li>
+            <li><a href="{{ url_for('innovation') }}">Innovation Lab</a></li>
+            <li><a href="{{ url_for('gallery') }}">Photo Gallery</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="{{ url_for('insights') }}">Perspectives & Blog</a></li>
+            <li><a href="{{ url_for('careers') }}">Careers & Openings</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+            <li><a href="https://maps.app.goo.gl/qY4frCJfDbazPDhz7" target="_blank" rel="noopener">Google Maps Location</a></li>
+            <li><a href="{{ url_for('admin_login') }}">Admin Login</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="tel:{{ company_phone }}">{{ company_phone }}</a></li>
+            <li><a href="mailto:{{ company_email }}">{{ company_email }}</a></li>
+            <li><a href="https://wa.me/{{ company_phone_clean }}" target="_blank">WhatsApp Direct</a></li>
+          </ul>
+          <div class="social-links" style="margin-top: 18px;">
+            <a href="https://www.linkedin.com/company/jarmfabstechnologies/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://x.com/jarmfabstech" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="X (formerly Twitter)" title="X / Twitter"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l16 16M4 20L20 4"/></svg></a>
+            <a href="https://www.instagram.com/jarmfabstechnologies/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <p>&copy; 2026 JarmFabs Technologies. All rights reserved.</p>
+        <p>Crafted with Creative Charm and Rigorous Technology in Tenkasi, Tamil Nadu.</p>
+      </div>
+    </footer>
+
+    <!-- Three.js (for 3D visual scene) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/128/three.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>

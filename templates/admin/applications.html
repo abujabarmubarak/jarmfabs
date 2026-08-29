@@ -1,0 +1,66 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block title %}Job Applications | JarmFabs Administration{% endblock %}
+{% block page_heading %}Candidate Job Applications{% endblock %}
+
+{% block content %}
+<div class="admin-card">
+  <div class="admin-card-head">
+    <h3>Submitted Applications ({{ applications|length }})</h3>
+  </div>
+
+  {% if applications %}
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Applicant</th>
+          <th>Applied For</th>
+          <th>Contact Info</th>
+          <th>Portfolio / Profile</th>
+          <th>Message / Cover Note</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for app in applications %}
+          <tr>
+            <td><strong>{{ app.applicant_name }}</strong></td>
+            <td>
+              {% if app.job %}
+                <span class="badge badge-pill">{{ app.job.title }}</span>
+              {% else %}
+                <span class="badge badge-pill">General Application</span>
+              {% endif %}
+            </td>
+            <td>
+              <a href="mailto:{{ app.email }}" style="color: var(--admin-primary); font-weight: 500;">{{ app.email }}</a><br />
+              <a href="tel:{{ app.phone }}" style="font-size: 0.82rem; color: var(--admin-muted);">{{ app.phone }}</a>
+            </td>
+            <td>
+              {% if app.portfolio_url %}
+                <a href="{{ app.portfolio_url }}" target="_blank" rel="noopener" style="color: var(--admin-gold); font-size: 0.85rem; font-weight: 600;">View Profile &rarr;</a>
+              {% else %}
+                <span style="color: var(--admin-muted);">—</span>
+              {% endif %}
+            </td>
+            <td>
+              {% if app.message %}
+                <p style="font-size: 0.84rem; color: var(--admin-text); max-width: 36ch; line-height: 1.4;">{{ app.message }}</p>
+              {% else %}
+                <span style="color: var(--admin-muted);">—</span>
+              {% endif %}
+            </td>
+            <td style="font-size: 0.8rem; color: var(--admin-muted); white-space: nowrap;">
+              {{ app.created_at.strftime('%d %b %Y, %I:%M %p') if app.created_at else '' }}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <div style="padding: 40px; text-align: center; color: var(--admin-muted);">
+      No candidate applications submitted yet.
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

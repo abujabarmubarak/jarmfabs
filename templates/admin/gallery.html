@@ -1,0 +1,89 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block title %}Manage Photo Gallery | JarmFabs Administration{% endblock %}
+{% block page_heading %}Photo Gallery Management &amp; Uploads{% endblock %}
+
+{% block content %}
+<p style="color: var(--admin-muted); font-size: 0.95rem; margin-bottom: 28px;">
+  Upload and manage showcase photos displayed on the public <a href="{{ url_for('gallery') }}" target="_blank" style="color: var(--admin-primary); text-decoration: underline;">Photo Gallery</a> and Home page.
+</p>
+
+<!-- Upload New Photo Card -->
+<div class="admin-card">
+  <div class="admin-card-head">
+    <h3>Upload New Photo to Gallery</h3>
+  </div>
+
+  <form action="{{ url_for('admin_gallery_upload') }}" method="POST" enctype="multipart/form-data" class="admin-form">
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="photo">Select Image File (JPG, PNG, WEBP, GIF) *</label>
+        <input type="file" id="photo" name="photo" accept="image/*" required />
+        <div class="upload-preview" id="photoPreview"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="title">Photo Title *</label>
+        <input type="text" id="title" name="title" placeholder="e.g. Engineering Studio Milestone" required />
+      </div>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="category">Category *</label>
+        <select id="category" name="category">
+          <option value="Projects">Projects &amp; Solutions</option>
+          <option value="Events">Events &amp; Milestones</option>
+          <option value="Office & Team">Office &amp; Team</option>
+          <option value="Products">Products &amp; UI</option>
+          <option value="Tech">Tech &amp; Hardware</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="caption">Caption / Short Description</label>
+        <input type="text" id="caption" name="caption" placeholder="Brief context displayed on hover and modal view..." />
+      </div>
+    </div>
+
+    <div style="margin-top: 10px;">
+      <button type="submit" class="btn-action" style="background: var(--admin-gold); color: #fff; padding: 12px 28px; border-radius: 8px; font-size: 0.95rem;">
+        + Upload Photo to Gallery
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- Uploaded Photos Grid -->
+<div class="admin-card">
+  <div class="admin-card-head">
+    <h3>Currently Published Gallery Photos ({{ photos|length }})</h3>
+  </div>
+
+  {% if photos %}
+    <div class="admin-gallery-grid">
+      {% for p in photos %}
+        <div class="admin-gallery-item">
+          <img src="{{ p.filename | media_url('gallery') }}" alt="{{ p.title }}" class="admin-gallery-thumb" />
+          <div class="admin-gallery-meta">
+            <h4>{{ p.title }}</h4>
+            <span class="badge badge-pill" style="margin-bottom: 6px;">{{ p.category }}</span>
+            {% if p.caption %}
+              <p style="font-size: 0.8rem; color: var(--admin-muted); margin-top: 4px;">{{ p.caption }}</p>
+            {% endif %}
+          </div>
+          <form action="{{ url_for('admin_gallery_delete', photo_id=p.id) }}" method="POST" class="delete-form admin-gallery-delete-form">
+            <button type="submit" class="btn-action btn-delete" style="padding: 4px 8px; font-size: 0.75rem;" title="Delete Photo">
+              &times; Delete
+            </button>
+          </form>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div style="padding: 40px; text-align: center; color: var(--admin-muted);">
+      No photos uploaded yet. Use the upload box above to add your first photo.
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block title %}Explore Us — Corporate Overview &amp; Story | JarmFabs Technologies{% endblock %}
+
+{% block content %}
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Corporate Overview</span>
+    <h1 class="page-hero-title">Explore JarmFabs Technologies</h1>
+    <p class="page-hero-desc">
+      An information technology and digital solutions company headquartered in Kadayanallur, Tenkasi, Tamil Nadu, India. We engineer dependable, scalable digital infrastructure for modern enterprises.
+    </p>
+  </div>
+</section>
+
+<!-- ============ COMPANY PROFILE & FACTS ============ -->
+<section class="section">
+  <div class="container" style="max-width: 960px;">
+    <div class="contact-card" style="margin-bottom: 54px;">
+      <div style="margin-bottom: 24px; border-bottom: 1px solid var(--cream-3); padding-bottom: 16px;">
+        <span class="eyebrow">Official Registration &amp; Details</span>
+        <h2 style="font-size: 1.6rem;">Company Profile</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+        <div class="contact-item">
+          <div class="contact-item-label">Trading Name</div>
+          <div class="contact-item-value"><strong>JarmFabs Technologies</strong></div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-label">Nature of Business</div>
+          <div class="contact-item-value">Information Technology, Custom Software &amp; Digital Solutions</div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-label">Founder &amp; Leadership</div>
+          <div class="contact-item-value">Abu Jabar Mubarak</div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-label">Primary Contact</div>
+          <div class="contact-item-value"><a href="tel:{{ company_phone }}" style="color: var(--teal); font-weight: 600;">{{ company_phone }}</a></div>
+        </div>
+
+        <div class="contact-item" style="grid-column: 1 / -1;">
+          <div class="contact-item-label">Registered Office Address</div>
+          <div class="contact-item-value">{{ company_address }}</div>
+        </div>
+
+        <div class="contact-item" style="grid-column: 1 / -1;">
+          <div class="contact-item-label">Corporate Statement</div>
+          <div class="contact-item-value" style="font-family: var(--serif); font-size: 1.1rem; color: var(--teal-deep);">"{{ company_tagline }}"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Naming Story -->
+    <div class="section-head center">
+      <span class="eyebrow">Corporate Identity</span>
+      <h2 class="section-title">The Rationale Behind "JarmFabs"</h2>
+      <p class="section-desc">Our name reflects our operating philosophy: technology should never be merely functional.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 40px;">
+      <div class="service-card" style="background: var(--cream-2); border-color: var(--cream-3);">
+        <span class="service-num" style="font-size: 1rem;">JARM</span>
+        <p style="font-family: var(--serif); font-size: 1.2rem; color: var(--gold); margin-bottom: 8px;">derived from <em>charm</em></p>
+        <p>Denotes creativity, elegance, distinction, and memorable human-centered experiences — the expressive discipline that shapes every product decision.</p>
+      </div>
+
+      <div class="service-card" style="background: var(--cream-2); border-color: var(--cream-3);">
+        <span class="service-num" style="font-size: 1rem;">FABS</span>
+        <p style="font-family: var(--serif); font-size: 1.2rem; color: var(--teal); margin-bottom: 8px;">derived from <em>fabulous</em></p>
+        <p>Denotes excellence, engineering innovation, and exceptional quality — the technical rigor and high standard applied to every delivery.</p>
+      </div>
+    </div>
+
+    <div style="background: var(--cream-2); border: 1px solid var(--cream-3); border-radius: var(--radius-m); padding: 32px; text-align: center; margin-bottom: 60px;">
+      <p style="font-size: 1.05rem; color: var(--charcoal-70); line-height: 1.7; max-width: 72ch; margin: 0 auto;">
+        Together, the <strong>JarmFabs</strong> name reflects our commitment to organizations worldwide: we engineer software with the discipline of a formal software institute and the care of an artisan design studio.
+      </p>
+    </div>
+
+    <!-- What We Do / What We Provide -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 36px;">
+      <div>
+        <h3 style="font-size: 1.4rem; margin-bottom: 14px;">What We Do</h3>
+        <p style="color: var(--charcoal-70); line-height: 1.65; margin-bottom: 16px;">
+          JarmFabs Technologies partners with organizations to plan, design, engineer, and maintain digital systems end-to-end.
+        </p>
+        <p style="color: var(--charcoal-70); line-height: 1.65;">
+          Our process spans requirement discovery, solution architecture, interface design, agile development, quality assurance, cloud deployment, and ongoing technical evolution.
+        </p>
+      </div>
+
+      <div>
+        <h3 style="font-size: 1.4rem; margin-bottom: 14px;">What We Deliver</h3>
+        <ul class="service-features" style="border: none; padding: 0;">
+          <li>Enterprise Resource Planning (ERP) Systems</li>
+          <li>Custom Software Applications &amp; Cloud Portals</li>
+          <li>iOS, Android &amp; Cross-Platform Mobile Applications</li>
+          <li>Intelligent AI Workflows &amp; Business Process Automation</li>
+          <li>Multi-Tenant SaaS Product Architectures</li>
+          <li>High-Impact Brand Identity &amp; Digital Marketing Strategy</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 60px;">
+      <a href="{{ url_for('services') }}" class="btn btn-primary">Explore Our Full Services Portfolio &rarr;</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

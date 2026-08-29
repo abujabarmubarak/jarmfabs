@@ -1,0 +1,82 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block title %}Manage Client Partners | JarmFabs Administration{% endblock %}
+{% block page_heading %}Client Partners Management{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+  <p style="color: var(--admin-muted); font-size: 0.95rem;">
+    Manage organizations and institutional clients displayed on the public <a href="{{ url_for('clients') }}" target="_blank" style="color: var(--admin-primary); text-decoration: underline;">Clients page</a> and Home page.
+  </p>
+  <a href="{{ url_for('admin_client_new') }}" class="btn-action" style="background: var(--admin-primary); color: #fff; padding: 10px 20px; border-radius: 8px;">
+    + Add Client Partner
+  </a>
+</div>
+
+<div class="admin-card">
+  <div class="admin-card-head">
+    <h3>Registered Client Partners ({{ clients|length }})</h3>
+  </div>
+
+  {% if clients %}
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Logo</th>
+          <th>Organization Name</th>
+          <th>Sector / Tag</th>
+          <th>Location</th>
+          <th>Website</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for client in clients %}
+          <tr>
+            <td style="width: 70px;">
+              {% if client.logo_filename %}
+                <img src="{{ client.logo_filename | media_url('clients') }}" alt="{{ client.name }}" style="width: 50px; height: 50px; border-radius: 8px; object-fit: cover; border: 1px solid var(--admin-border);" />
+              {% else %}
+                <div style="width: 50px; height: 50px; border-radius: 8px; background: #e5e7eb; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #6b7280;">
+                  {{ client.name[:2] | upper }}
+                </div>
+              {% endif %}
+            </td>
+            <td>
+              <strong>{{ client.name }}</strong>
+              {% if client.description %}
+                <p style="font-size: 0.8rem; color: var(--admin-muted); margin-top: 4px; max-width: 40ch;">{{ client.description }}</p>
+              {% endif %}
+            </td>
+            <td><span class="badge badge-pill">{{ client.tag }}</span></td>
+            <td style="color: var(--admin-muted); font-size: 0.85rem;">{{ client.location or '—' }}</td>
+            <td style="font-size: 0.85rem;">
+              {% if client.website and client.website != '#' %}
+                <a href="{{ client.website }}" target="_blank" style="color: var(--admin-primary); text-decoration: underline;">Link &rarr;</a>
+              {% else %}
+                <span style="color: var(--admin-muted);">—</span>
+              {% endif %}
+            </td>
+            <td>
+              <div class="action-btns">
+                <a href="{{ url_for('admin_client_edit', client_id=client.id) }}" class="btn-action btn-edit">
+                  Edit
+                </a>
+                <form action="{{ url_for('admin_client_delete', client_id=client.id) }}" method="POST" class="delete-form" style="display: inline;">
+                  <button type="submit" class="btn-action btn-delete">
+                    Delete
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <div style="padding: 40px; text-align: center; color: var(--admin-muted);">
+      No client partners added yet. Click "+ Add Client Partner" to add your first organization.
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

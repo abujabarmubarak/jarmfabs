@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+
+{% block title %}Our Services — 8 Core Disciplines | JarmFabs Technologies{% endblock %}
+
+{% block content %}
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Comprehensive Capabilities</span>
+    <h1 class="page-hero-title">A Full Ecosystem of Digital Capability</h1>
+    <p class="page-hero-desc">
+      Eight interlocking disciplines — engaged individually or together as one cohesive, continuous build. Built with uncompromising craft and engineering excellence.
+    </p>
+  </div>
+</section>
+
+<!-- ============ SERVICES LIST ============ -->
+<section class="section">
+  <div class="container">
+    <div style="display: flex; flex-direction: column; gap: 40px;">
+
+      <!-- Service 1 -->
+      <div class="service-card" style="padding: 44px 36px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+          <div>
+            <span class="service-num">01 / DISCIPLINE</span>
+            <h2 style="font-size: 1.8rem; margin-top: 6px;">ERP &amp; Business Solutions</h2>
+          </div>
+          <a href="{{ url_for('contact') }}?service=ERP" class="btn btn-sm btn-ghost">Inquire for Your Business &rarr;</a>
+        </div>
+        <p style="font-size: 1.05rem; color: var(--charcoal-70); margin-bottom: 24px; max-width: 80ch;">
+          Custom ERP platforms designed around the specific operational realities of your organization — from student and campus systems to multi-branch inventory, manufacturing workflows, and financial ledgers.
+        </p>
+        <h4 style="font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px;">What's Included</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>Custom workflow mapping and architecture</li>
+            <li>Role-based access control and audit trails</li>
+            <li>Real-time reporting dashboards and analytics</li>
+          </ul>
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>Multi-branch inventory and asset tracking</li>
+            <li>Accounting, invoicing, and billing automation</li>
+            <li>Staff training, data migration, and SLA support</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-card" style="padding: 44px 36px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+          <div>
+            <span class="service-num">02 / DISCIPLINE</span>
+            <h2 style="font-size: 1.8rem; margin-top: 6px;">Custom Software Development</h2>
+          </div>
+          <a href="{{ url_for('contact') }}?service=CustomSoftware" class="btn btn-sm btn-ghost">Inquire for Your Business &rarr;</a>
+        </div>
+        <p style="font-size: 1.05rem; color: var(--charcoal-70); margin-bottom: 24px; max-width: 80ch;">
+          When off-the-shelf software falls short, we engineer bespoke applications front-to-back, architected from the outset to scale with your business and data growth.
+        </p>
+        <h4 style="font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px;">What's Included</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>Requirements discovery and system architecture</li>
+            <li>Full-stack development (Python, Flask, React, Vue)</li>
+            <li>Database design for high throughput and ACID integrity</li>
+          </ul>
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>RESTful API development and webhook integrations</li>
+            <li>Automated unit, integration, and security testing</li>
+            <li>Comprehensive documentation and maintenance</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-card" style="padding: 44px 36px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+          <div>
+            <span class="service-num">03 / DISCIPLINE</span>
+            <h2 style="font-size: 1.8rem; margin-top: 6px;">Web Development</h2>
+          </div>
+          <a href="{{ url_for('contact') }}?service=WebDev" class="btn btn-sm btn-ghost">Inquire for Your Business &rarr;</a>
+        </div>
+        <p style="font-size: 1.05rem; color: var(--charcoal-70); margin-bottom: 24px; max-width: 80ch;">
+          We build websites and web applications that are lightning-fast, accessible, and structured to represent your brand credibly from the first viewport.
+        </p>
+        <h4 style="font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px;">What's Included</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>Corporate, marketing, and institutional portals</li>
+            <li>Interactive web apps and customer portals</li>
+            <li>Responsive design across mobile, tablet, and desktop</li>
+          </ul>
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>Core Web Vitals performance optimization</li>
+            <li>Search engine optimization (SEO) architecture</li>
+            <li>Custom Content Management System (CMS) setups</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="service-card" style="padding: 44px 36px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+          <div>
+            <span class="service-num">04 / DISCIPLINE</span>
+            <h2 style="font-size: 1.8rem; margin-top: 6px;">Mobile App Development</h2>
+          </div>
+          <a href="{{ url_for('contact') }}?service=MobileApp" class="btn btn-sm btn-ghost">Inquire for Your Business &rarr;</a>
+        </div>
+        <p style="font-size: 1.05rem; color: var(--charcoal-70); margin-bottom: 24px; max-width: 80ch;">
+          We design and build mobile apps that feel native, respond instantly, and are genuinely simple to use for both consumer products and internal operational tools.
+        </p>
+        <h4 style="font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px;">What's Included</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>Android, iOS, and cross-platform (Flutter/React Native)</li>
+            <li>Native hardware integrations (Camera, GPS, Biometrics)</li>
+            <li>Offline-first data sync architectures</li>
+          </ul>
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>Push notifications and automated customer triggers</li>
+            <li>App Store and Google Play deployment management</li>
+            <li>Crash monitoring and iterative updates</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="service-card" style="padding: 44px 36px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+          <div>
+            <span class="service-num">05 / DISCIPLINE</span>
+            <h2 style="font-size: 1.8rem; margin-top: 6px;">AI &amp; Automation</h2>
+          </div>
+          <a href="{{ url_for('contact') }}?service=AI" class="btn btn-sm btn-ghost">Inquire for Your Business &rarr;</a>
+        </div>
+        <p style="font-size: 1.05rem; color: var(--charcoal-70); margin-bottom: 24px; max-width: 80ch;">
+          We identify repetitive, error-prone workflows in your operations and apply intelligent automation and applied AI to remove friction — freeing your team for higher-value strategic work.
+        </p>
+        <h4 style="font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px;">What's Included</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>Document parsing and optical intelligence (OCR)</li>
+            <li>Custom LLM chatbots and agentic assistants</li>
+            <li>Process automation (n8n, webhook pipelines)</li>
+          </ul>
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>Predictive business analytics and automated alerts</li>
+            <li>Integration into existing CRM/ERP systems</li>
+            <li>Continuous monitoring and accuracy tuning</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="service-card" style="padding: 44px 36px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+          <div>
+            <span class="service-num">06 / DISCIPLINE</span>
+            <h2 style="font-size: 1.8rem; margin-top: 6px;">SaaS Product Development</h2>
+          </div>
+          <a href="{{ url_for('contact') }}?service=SaaS" class="btn btn-sm btn-ghost">Inquire for Your Business &rarr;</a>
+        </div>
+        <p style="font-size: 1.05rem; color: var(--charcoal-70); margin-bottom: 24px; max-width: 80ch;">
+          From concept to multi-tenant cloud software. We engineer scalable SaaS products prepared for multiple business tiers, recurring subscriptions, and frictionless user onboarding.
+        </p>
+        <h4 style="font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px;">What's Included</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>Multi-tenant database and tenant isolation security</li>
+            <li>Stripe / Razorpay subscription billing integration</li>
+            <li>MVP architecture for rapid market validation</li>
+          </ul>
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>Automated CI/CD cloud deployment pipelines</li>
+            <li>User role delegation and team workspaces</li>
+            <li>Product telemetry and analytics instrumentation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Service 7 -->
+      <div class="service-card" style="padding: 44px 36px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+          <div>
+            <span class="service-num">07 / DISCIPLINE</span>
+            <h2 style="font-size: 1.8rem; margin-top: 6px;">Digital Marketing &amp; Growth</h2>
+          </div>
+          <a href="{{ url_for('contact') }}?service=Marketing" class="btn btn-sm btn-ghost">Inquire for Your Business &rarr;</a>
+        </div>
+        <p style="font-size: 1.05rem; color: var(--charcoal-70); margin-bottom: 24px; max-width: 80ch;">
+          Data-driven digital marketing that builds a credible, consistent presence — combining technical SEO, targeted campaigns, content authority, and conversion rate optimization.
+        </p>
+        <h4 style="font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px;">What's Included</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>Technical SEO and local search visibility</li>
+            <li>Content strategy and high-intent keyword mapping</li>
+            <li>Google Ads &amp; Meta performance campaigns</li>
+          </ul>
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>Conversion funnel analysis and A/B testing</li>
+            <li>Brand messaging, newsletters, and email funnels</li>
+            <li>Transparent monthly performance dashboards</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Service 8 -->
+      <div class="service-card" style="padding: 44px 36px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+          <div>
+            <span class="service-num">08 / DISCIPLINE</span>
+            <h2 style="font-size: 1.8rem; margin-top: 6px;">UI/UX &amp; Product Design</h2>
+          </div>
+          <a href="{{ url_for('contact') }}?service=Design" class="btn btn-sm btn-ghost">Inquire for Your Business &rarr;</a>
+        </div>
+        <p style="font-size: 1.05rem; color: var(--charcoal-70); margin-bottom: 24px; max-width: 80ch;">
+          Human-centered product design that balances visual distinctiveness, intuitive cognitive flow, and commercial objectives.
+        </p>
+        <h4 style="font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px;">What's Included</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>User journey mapping and information architecture</li>
+            <li>Interactive Figma wireframes and clickable prototypes</li>
+            <li>Comprehensive design systems and component libraries</li>
+          </ul>
+          <ul class="service-features" style="border: none; padding: 0; margin: 0;">
+            <li>Usability testing and design iteration</li>
+            <li>WCAG accessibility compliance audits</li>
+            <li>Pixel-perfect developer handoff specifications</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA Box -->
+    <div style="margin-top: 60px; background: var(--cream-2); border: 1px solid var(--cream-3); border-radius: var(--radius-l); padding: 48px; text-align: center;">
+      <h3 style="font-size: 1.8rem; margin-bottom: 14px;">Have a Unique Requirement?</h3>
+      <p style="color: var(--charcoal-70); max-width: 60ch; margin: 0 auto 28px;">
+        We frequently architect custom solutions that blend multiple disciplines into a single continuous delivery. Let's discuss your timeline and technical scope.
+      </p>
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a href="{{ url_for('contact') }}" class="btn btn-primary">Schedule a Consultation</a>
+        <a href="https://wa.me/{{ company_phone_clean }}" target="_blank" class="btn btn-whatsapp">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

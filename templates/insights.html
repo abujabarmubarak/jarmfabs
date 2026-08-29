@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}Perspectives &amp; Insights — Engineering Articles | JarmFabs Technologies{% endblock %}
+
+{% block content %}
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Perspectives &amp; Thought Leadership</span>
+    <h1 class="page-hero-title">Insights from the Lab</h1>
+    <p class="page-hero-desc">
+      In-depth essays, architectural breakdowns, and practical reflections on software craftsmanship, ERP systems, and modern digital engineering.
+    </p>
+  </div>
+</section>
+
+<!-- ============ ARTICLES LIST ============ -->
+<section class="section">
+  <div class="container" style="max-width: 960px;">
+    <div style="display: flex; flex-direction: column; gap: 32px;">
+
+      <!-- Article 1 -->
+      <article class="service-card" style="padding: 36px;">
+        <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 12px;">
+          <span class="client-tag">ERP Architecture</span>
+          <span style="font-family: var(--mono); font-size: 0.76rem; color: var(--charcoal-45);">2026 Edition &bull; 8 min read</span>
+        </div>
+        <h2 style="font-size: 1.6rem; margin-bottom: 12px; color: var(--teal-deep);">Why Custom Campus ERP Beats Rigid Off-The-Shelf Software for Modern Colleges</h2>
+        <p style="color: var(--charcoal-70); font-size: 0.96rem; line-height: 1.65; margin-bottom: 18px;">
+          Higher education institutions possess unique departmental interdependencies — from autonomous semester grading schemas to specialized lab allocations. We explore why tailored ERP implementations yield higher student retention and lower administrative friction compared to monolithic legacy suites.
+        </p>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem; font-weight: 600; color: var(--teal);">By JarmFabs Engineering Team</span>
+          <span style="color: var(--gold); font-size: 0.9rem; font-weight: 600;">Full Case Study Available</span>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="service-card" style="padding: 36px;">
+        <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 12px;">
+          <span class="client-tag">AI &amp; Automation</span>
+          <span style="font-family: var(--mono); font-size: 0.76rem; color: var(--charcoal-45);">2026 Edition &bull; 6 min read</span>
+        </div>
+        <h2 style="font-size: 1.6rem; margin-bottom: 12px; color: var(--teal-deep);">Pragmatic AI: Eliminating Repetitive Back-Office Data Entry with Python &amp; OCR</h2>
+        <p style="color: var(--charcoal-70); font-size: 0.96rem; line-height: 1.65; margin-bottom: 18px;">
+          Most businesses do not need expensive generative AI experiments; they need invoice parsing, supplier manifest extraction, and automated cross-checks. Here is our blueprint for building dependable Python automation pipelines that deliver immediate ROI.
+        </p>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem; font-weight: 600; color: var(--teal);">By Abu Jabar Mubarak &amp; AI Team</span>
+          <span style="color: var(--gold); font-size: 0.9rem; font-weight: 600;">Technical Blueprint</span>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="service-card" style="padding: 36px;">
+        <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 12px;">
+          <span class="client-tag">Product Design</span>
+          <span style="font-family: var(--mono); font-size: 0.76rem; color: var(--charcoal-45);">2026 Edition &bull; 5 min read</span>
+        </div>
+        <h2 style="font-size: 1.6rem; margin-bottom: 12px; color: var(--teal-deep);">Designing for High Cognitive Load: Building Ergonomic Industrial UIs</h2>
+        <p style="color: var(--charcoal-70); font-size: 0.96rem; line-height: 1.65; margin-bottom: 18px;">
+          When an operator is overseeing hundreds of orders per hour, micro-animations and excessive dialogs become operational liabilities. A deep dive into high-contrast visual hierarchies, keyboard-first navigation, and accessible typography systems.
+        </p>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem; font-weight: 600; color: var(--teal);">By JarmFabs Design Studio</span>
+          <span style="color: var(--gold); font-size: 0.9rem; font-weight: 600;">Design Guide</span>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Newsletter Box -->
+    <div style="margin-top: 54px; background: var(--cream-2); border: 1px solid var(--cream-3); border-radius: var(--radius-m); padding: 36px; text-align: center;">
+      <h3 style="font-size: 1.4rem; margin-bottom: 10px;">Stay Updated with JarmFabs Perspectives</h3>
+      <p style="color: var(--charcoal-70); font-size: 0.94rem; margin-bottom: 20px;">Receive occasional curated engineering insights, architecture teardowns, and technology releases.</p>
+      <form action="{{ url_for('contact') }}" method="GET" style="display: flex; gap: 10px; max-width: 460px; margin: 0 auto;">
+        <input type="email" name="subscribe_email" placeholder="Enter your work email..." class="form-control" required />
+        <button type="submit" class="btn btn-primary" style="white-space: nowrap;">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

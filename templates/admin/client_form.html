@@ -1,0 +1,70 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block title %}{{ 'Edit Client Partner' if client else 'Add Client Partner' }} | JarmFabs Administration{% endblock %}
+{% block page_heading %}{{ 'Edit Client Partner' if client else 'Add New Client Partner' }}{% endblock %}
+
+{% block content %}
+<div style="max-width: 800px;">
+  <div class="admin-card">
+    <div class="admin-card-head">
+      <h3>{{ 'Update Partner Details' if client else 'Register New Partner Organization' }}</h3>
+      <a href="{{ url_for('admin_clients') }}" style="font-size: 0.85rem; color: var(--admin-muted);">&larr; Back to Client List</a>
+    </div>
+
+    <form action="" method="POST" enctype="multipart/form-data" class="admin-form">
+      <div class="form-group">
+        <label for="name">Organization / Client Name *</label>
+        <input type="text" id="name" name="name" value="{{ client.name if client else '' }}" placeholder="e.g. Mohamed Sathak A J College of Engineering" required />
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="tag">Industry / Sector Tag *</label>
+          <input type="text" id="tag" name="tag" value="{{ client.tag if client else '' }}" placeholder="e.g. Higher Education, Healthcare, Enterprise" required />
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location / Region</label>
+          <input type="text" id="location" name="location" value="{{ client.location if client else '' }}" placeholder="e.g. Chennai, Tamil Nadu" />
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="website">Website URL</label>
+          <input type="url" id="website" name="website" value="{{ client.website if client else '' }}" placeholder="https://example.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="display_order">Display Priority (0 = Default, 1 = First)</label>
+          <input type="number" id="display_order" name="display_order" value="{{ client.display_order if client else 0 }}" min="0" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="logo">Client Logo Image (JPG, PNG, WEBP, SVG)</label>
+        <input type="file" id="logo" name="logo" accept="image/*" />
+        <p style="font-size: 0.78rem; color: var(--admin-muted); margin-top: 4px;">Square or circular logo asset recommended.</p>
+        {% if client and client.logo_filename %}
+          <div style="margin-top: 10px;">
+            <span style="font-size: 0.8rem; color: var(--admin-muted);">Current Logo:</span><br />
+            <img src="{{ client.logo_filename | media_url('clients') }}" alt="Logo preview" style="max-height: 60px; margin-top: 6px; border-radius: 6px; border: 1px solid var(--admin-border);" />
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="form-group">
+        <label for="description">Project Summary / Scope Delivered</label>
+        <textarea id="description" name="description" rows="4" placeholder="Brief summary of systems or solutions delivered for this partner...">{{ client.description if client else '' }}</textarea>
+      </div>
+
+      <div style="display: flex; gap: 14px; margin-top: 24px;">
+        <button type="submit" class="btn-action" style="background: var(--admin-primary); color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 0.95rem;">
+          {{ 'Save Changes' if client else 'Add Client Partner' }}
+        </button>
+        <a href="{{ url_for('admin_clients') }}" class="btn-action btn-edit" style="padding: 12px 20px;">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

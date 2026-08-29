@@ -1,0 +1,74 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block title %}Manage Careers &amp; Jobs | JarmFabs Administration{% endblock %}
+{% block page_heading %}Career Opportunities Management{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+  <p style="color: var(--admin-muted); font-size: 0.95rem;">
+    Manage open job postings displayed on the public <a href="{{ url_for('careers') }}" target="_blank" style="color: var(--admin-primary); text-decoration: underline;">Careers page</a>.
+  </p>
+  <a href="{{ url_for('admin_job_new') }}" class="btn-action" style="background: var(--admin-primary); color: #fff; padding: 10px 20px; border-radius: 8px;">
+    + Post New Job Opening
+  </a>
+</div>
+
+<div class="admin-card">
+  <div class="admin-card-head">
+    <h3>All Job Openings ({{ jobs|length }})</h3>
+  </div>
+
+  {% if jobs %}
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Job Title</th>
+          <th>Department</th>
+          <th>Location</th>
+          <th>Type / Exp</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for job in jobs %}
+          <tr>
+            <td>
+              <strong>{{ job.title }}</strong>
+            </td>
+            <td><span class="badge badge-pill">{{ job.department }}</span></td>
+            <td style="color: var(--admin-muted); font-size: 0.85rem;">{{ job.location }}</td>
+            <td style="font-size: 0.85rem;">
+              {{ job.job_type }}<br />
+              <span style="color: var(--admin-muted);">Exp: {{ job.experience }}</span>
+            </td>
+            <td>
+              <form action="{{ url_for('admin_job_toggle', job_id=job.id) }}" method="POST" style="display: inline;">
+                <button type="submit" class="badge {{ 'badge-active' if job.is_active else 'badge-inactive' }}" style="cursor: pointer; border: none;" title="Click to toggle status">
+                  {{ 'Active' if job.is_active else 'Closed' }}
+                </button>
+              </form>
+            </td>
+            <td>
+              <div class="action-btns">
+                <a href="{{ url_for('admin_job_edit', job_id=job.id) }}" class="btn-action btn-edit">
+                  Edit
+                </a>
+                <form action="{{ url_for('admin_job_delete', job_id=job.id) }}" method="POST" class="delete-form" style="display: inline;">
+                  <button type="submit" class="btn-action btn-delete">
+                    Delete
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <div style="padding: 40px; text-align: center; color: var(--admin-muted);">
+      No career jobs posted yet. Click "+ Post New Job Opening" to create your first listing.
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

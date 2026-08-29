@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}Photo Gallery — Moments &amp; Technology Showcase | JarmFabs Technologies{% endblock %}
+
+{% block content %}
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Visual Journey</span>
+    <h1 class="page-hero-title">JarmFabs Photo Gallery</h1>
+    <p class="page-hero-desc">
+      Explore moments from our engineering lab, client milestones, team celebrations, and product showcases. Every frame reflects our spirit of creative charm and rigorous craft.
+    </p>
+  </div>
+</section>
+
+<!-- ============ GALLERY SECTION ============ -->
+<section class="section">
+  <div class="container">
+
+    <!-- Category Filters -->
+    <div class="gallery-filters">
+      <a href="{{ url_for('gallery', category='All') }}" class="gallery-filter-btn {% if selected_category == 'All' or not selected_category %}active{% endif %}">All Moments</a>
+      <a href="{{ url_for('gallery', category='Projects') }}" class="gallery-filter-btn {% if selected_category == 'Projects' %}active{% endif %}">Projects &amp; Solutions</a>
+      <a href="{{ url_for('gallery', category='Events') }}" class="gallery-filter-btn {% if selected_category == 'Events' %}active{% endif %}">Events &amp; Milestones</a>
+      <a href="{{ url_for('gallery', category='Office & Team') }}" class="gallery-filter-btn {% if selected_category == 'Office & Team' %}active{% endif %}">Office &amp; Team</a>
+      <a href="{{ url_for('gallery', category='Products') }}" class="gallery-filter-btn {% if selected_category == 'Products' %}active{% endif %}">Products &amp; UI</a>
+      <a href="{{ url_for('gallery', category='Tech') }}" class="gallery-filter-btn {% if selected_category == 'Tech' %}active{% endif %}">Tech &amp; Hardware</a>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid">
+      {% for photo in photos %}
+        <div class="gallery-card"
+             data-category="{{ photo.category }}"
+             data-img-src="{{ photo.filename | media_url('gallery') }}"
+             data-title="{{ photo.title }}"
+             data-caption="{{ photo.caption or '' }}">
+          <img src="{{ photo.filename | media_url('gallery') }}" alt="{{ photo.title }}" loading="lazy" />
+          <div class="gallery-overlay">
+            <span class="gallery-cat">{{ photo.category }}</span>
+            <h3 class="gallery-title">{{ photo.title }}</h3>
+            {% if photo.caption %}
+              <p class="gallery-caption">{{ photo.caption }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% else %}
+        <div style="grid-column: 1 / -1; text-align: center; padding: 70px 20px; background: var(--cream-2); border: 1px dashed var(--cream-3); border-radius: var(--radius-l);">
+          <h3 style="font-size: 1.4rem; margin-bottom: 12px;">No Photos in This Category Yet</h3>
+          <p style="color: var(--charcoal-70); font-size: 0.98rem; max-width: 50ch; margin: 0 auto 24px;">
+            Whenever photos are uploaded from the admin panel, they will appear dynamically in this gallery!
+          </p>
+          {% if is_admin %}
+            <a href="{{ url_for('admin_gallery') }}" class="btn btn-primary">Upload Photos in Admin &rarr;</a>
+          {% else %}
+            <a href="{{ url_for('gallery') }}" class="btn btn-ghost">View All Photos</a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if is_admin %}
+      <div style="margin-top: 50px; text-align: center;">
+        <a href="{{ url_for('admin_gallery') }}" class="btn btn-primary" style="background: var(--gold); border-color: var(--gold);">
+          + Upload More Photos to Gallery
+        </a>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<!-- ============ LIGHTBOX MODAL ============ -->
+<div class="lightbox" id="galleryLightbox" aria-hidden="true">
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image viewer">&times;</button>
+    <img src="" alt="Full view" id="lightboxImg" class="lightbox-img" />
+    <div class="lightbox-info">
+      <h3 id="lightboxTitle" style="font-size: 1.4rem; margin-bottom: 6px; color: var(--cream-2);"></h3>
+      <p id="lightboxCaption" style="font-size: 0.94rem; color: rgba(247, 242, 230, 0.8); max-width: 70ch; margin: 0 auto;"></p>
+    </div>
+  </div>
+</div>
+{% endblock %}

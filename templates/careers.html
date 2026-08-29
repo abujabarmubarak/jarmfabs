@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block title %}Careers — Join Our Engineering &amp; Design Team | JarmFabs Technologies{% endblock %}
+
+{% block content %}
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Work With Purpose</span>
+    <h1 class="page-hero-title">Careers at JarmFabs Technologies</h1>
+    <p class="page-hero-desc">
+      We believe software is a craft requiring equal parts rigorous engineering and creative charm. Join our team in Tenkasi or work with us in a flexible hybrid arrangement.
+    </p>
+  </div>
+</section>
+
+<!-- ============ CULTURE & PERKS ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Why JarmFabs</span>
+      <h2 class="section-title">A Team That Values Autonomy &amp; Craft</h2>
+      <p class="section-desc">We foster a high-trust, low-bureaucracy engineering culture where curious minds thrive.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-bottom: 70px;">
+      <div class="service-card">
+        <span class="service-num">01 / CULTURE</span>
+        <h3>Continuous Mastery</h3>
+        <p>Regular technical learning sessions, book budgets, and access to frontier AI tools to expand your engineering horizon.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">02 / CULTURE</span>
+        <h3>True Ownership</h3>
+        <p>You own your features end-to-end — from database modeling and architecture design to user interface and deployment.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">03 / CULTURE</span>
+        <h3>Balanced Velocity</h3>
+        <p>We respect healthy sustainable work rhythms, avoiding endless burnouts while maintaining sharp execution discipline.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">04 / CULTURE</span>
+        <h3>Modern Tooling</h3>
+        <p>Work with clean codebases, Python 3.13, PostgreSQL, modern frontend frameworks, Docker, and intelligent development sidecars.</p>
+      </div>
+    </div>
+
+    <!-- ============ OPEN POSITIONS ============ -->
+    <div id="openings" style="scroll-margin-top: 100px;">
+      <div class="section-head">
+        <span class="eyebrow">Open Opportunities</span>
+        <h2 class="section-title">Current Career Openings</h2>
+        <p class="section-desc">Explore active roles across engineering, design, and innovation.</p>
+      </div>
+
+      <div class="jobs-list">
+        {% for job in jobs %}
+          <div class="job-card">
+            <div class="job-info">
+              <h3>{{ job.title }}</h3>
+              <div class="job-meta">
+                <span class="job-pill dept">{{ job.department }}</span>
+                <span class="job-pill">{{ job.location }}</span>
+                <span class="job-pill">{{ job.job_type }}</span>
+                <span class="job-pill">Experience: {{ job.experience }}</span>
+              </div>
+              <p class="job-desc-snippet" style="margin-bottom: 14px;">{{ job.description }}</p>
+              {% if job.requirements %}
+                <div style="font-size: 0.88rem; color: var(--charcoal-70); background: var(--cream-3); padding: 12px 16px; border-radius: var(--radius-s); margin-top: 10px;">
+                  <strong style="color: var(--teal-deep);">Key Requirements:</strong> {{ job.requirements }}
+                </div>
+              {% endif %}
+            </div>
+            <div style="min-width: 140px; text-align: right;">
+              <button type="button" class="btn btn-primary btn-apply-job" data-job-id="{{ job.id }}" data-job-title="{{ job.title }}">Apply Now</button>
+            </div>
+          </div>
+        {% else %}
+          <div style="text-align: center; padding: 60px 20px; background: var(--cream-2); border: 1px dashed var(--cream-3); border-radius: var(--radius-m);">
+            <h3 style="font-size: 1.3rem; margin-bottom: 10px;">No Active Openings at This Exact Moment</h3>
+            <p style="color: var(--charcoal-70); font-size: 0.96rem; margin-bottom: 20px;">We are always delighted to meet talented software engineers and designers. Send us your profile below!</p>
+            <button type="button" class="btn btn-primary btn-apply-job" data-job-id="" data-job-title="General Application">Submit General Application</button>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- General Application Box -->
+    <div style="margin-top: 60px; background: var(--cream-2); border: 1px solid var(--cream-3); border-radius: var(--radius-l); padding: 40px; text-align: center;">
+      <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Looking for an Internship or Specialized Role?</h3>
+      <p style="color: var(--charcoal-70); max-width: 60ch; margin: 0 auto 20px;">
+        Are you a college student, graduate, or experienced professional in Southern Tamil Nadu looking to build your career? We welcome spontaneous applications.
+      </p>
+      <a href="mailto:{{ company_email }}?subject=Career%20Inquiry%20-%20JarmFabs%20Technologies" class="btn btn-ghost">Email Resume Directly &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPLICATION MODAL ============ -->
+<div class="apply-modal" id="applyModal" aria-hidden="true">
+  <div class="apply-panel" role="dialog" aria-modal="true">
+    <button class="apply-close" id="applyModalClose" aria-label="Close application modal">&times;</button>
+    
+    <span class="eyebrow">Job Application</span>
+    <h2 style="font-size: 1.6rem; margin-bottom: 6px;" id="applyJobTitleDisplay">Apply for Position</h2>
+    <p style="color: var(--charcoal-70); font-size: 0.92rem; margin-bottom: 28px;">
+      Please share your contact information, resume/portfolio link, and a brief note on what excites you about JarmFabs Technologies.
+    </p>
+
+    <form action="{{ url_for('apply_job') }}" method="POST">
+      <input type="hidden" name="job_id" id="applyJobId" value="" />
+
+      <div class="form-group">
+        <label for="appName">Your Full Name *</label>
+        <input type="text" id="appName" name="name" class="form-control" placeholder="e.g. Ahamed Farhan" required />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="appEmail">Email Address *</label>
+          <input type="email" id="appEmail" name="email" class="form-control" placeholder="name@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="appPhone">Phone / WhatsApp Number *</label>
+          <input type="tel" id="appPhone" name="phone" class="form-control" placeholder="+91 98765 43210" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="appPortfolio">Portfolio / LinkedIn / GitHub URL</label>
+        <input type="url" id="appPortfolio" name="portfolio_url" class="form-control" placeholder="https://github.com/yourhandle or portfolio link" />
+      </div>
+
+      <div class="form-group">
+        <label for="appMessage">Brief Note / Why You'd Like to Join</label>
+        <textarea id="appMessage" name="message" class="form-control" rows="4" placeholder="Tell us about your background, projects you're proud of, and what you enjoy building..."></textarea>
+      </div>
+
+      <div style="margin-top: 24px; display: flex; gap: 14px; justify-content: flex-end;">
+        <button type="button" class="btn btn-ghost" onclick="document.getElementById('applyModal').classList.remove('open')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit Application</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

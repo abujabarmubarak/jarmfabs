@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}Innovation Lab — Applied AI &amp; Next-Gen Tech | JarmFabs Technologies{% endblock %}
+
+{% block content %}
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Frontier Engineering</span>
+    <h1 class="page-hero-title">Innovation at JarmFabs</h1>
+    <p class="page-hero-desc">
+      We don't chase buzzwords for the sake of novelty. We experiment rigorously with applied AI, intelligent agent systems, and modern cloud patterns to solve concrete operational problems.
+    </p>
+  </div>
+</section>
+
+<!-- ============ INNOVATION FRONTIERS ============ -->
+<section class="section">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-bottom: 60px;">
+
+      <div class="service-card">
+        <span class="service-num">01 / FRONTIER</span>
+        <h3>Applied AI &amp; LLM Systems</h3>
+        <p>Designing domain-grounded retrieval systems (RAG), automated summarization, and intelligent agents that integrate securely with corporate databases without hallucination risk.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">02 / FRONTIER</span>
+        <h3>Intelligent Process Automation</h3>
+        <p>Combining webhook-driven event triggers, automated document parsing, OCR pipelines, and multi-system syncing to eliminate manual data entry overhead.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">03 / FRONTIER</span>
+        <h3>Cloud-Native Architecture</h3>
+        <p>Docker containerization, serverless microservices, resilient PostgreSQL architectures, and zero-downtime continuous deployment pipelines.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">04 / FRONTIER</span>
+        <h3>Security &amp; Data Governance</h3>
+        <p>Role-based cryptographic authentication, encrypted data storage at rest and in transit, complete audit trails, and strict compliance posture.</p>
+      </div>
+
+    </div>
+
+    <!-- TECH STACK SHOWCASE -->
+    <div class="contact-card" style="padding: 44px;">
+      <div class="section-head center" style="margin-bottom: 36px;">
+        <span class="eyebrow">Engineered For Performance</span>
+        <h2 style="font-size: 1.8rem;">Our Modern Technology Stack</h2>
+        <p class="section-desc">Reliable, modern, battle-tested technologies chosen for maintainability and speed.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+        <div style="background: #fff; border: 1px solid var(--cream-3); border-radius: var(--radius-m); padding: 20px;">
+          <h4 style="color: var(--teal); margin-bottom: 8px; font-family: var(--sans); font-weight: 700;">Backend &amp; APIs</h4>
+          <p style="font-size: 0.88rem; color: var(--charcoal-70);">Python, Flask, FastAPI, Node.js, RESTful &amp; GraphQL</p>
+        </div>
+
+        <div style="background: #fff; border: 1px solid var(--cream-3); border-radius: var(--radius-m); padding: 20px;">
+          <h4 style="color: var(--teal); margin-bottom: 8px; font-family: var(--sans); font-weight: 700;">Database &amp; Caching</h4>
+          <p style="font-size: 0.88rem; color: var(--charcoal-70);">PostgreSQL, SQLAlchemy, Redis, SQLite, MongoDB</p>
+        </div>
+
+        <div style="background: #fff; border: 1px solid var(--cream-3); border-radius: var(--radius-m); padding: 20px;">
+          <h4 style="color: var(--teal); margin-bottom: 8px; font-family: var(--sans); font-weight: 700;">Frontend &amp; Mobile</h4>
+          <p style="font-size: 0.88rem; color: var(--charcoal-70);">HTML5, CSS3, Modern JS, React, Vue, Flutter, Three.js</p>
+        </div>
+
+        <div style="background: #fff; border: 1px solid var(--cream-3); border-radius: var(--radius-m); padding: 20px;">
+          <h4 style="color: var(--teal); margin-bottom: 8px; font-family: var(--sans); font-weight: 700;">DevOps &amp; Cloud</h4>
+          <p style="font-size: 0.88rem; color: var(--charcoal-70);">Docker, Linux/Ubuntu, Nginx, AWS, DigitalOcean, GitHub Actions</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px;">
+      <a href="{{ url_for('contact') }}" class="btn btn-primary">Partner on an Innovation Project &rarr;</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

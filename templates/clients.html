@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Client Partners — Trusted Organizations | JarmFabs Technologies{% endblock %}
+
+{% block content %}
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Proven Relationships</span>
+    <h1 class="page-hero-title">Organizations We've Engineered For</h1>
+    <p class="page-hero-desc">
+      A record of trust, not a headline number. We collaborate closely with academic institutions, established enterprises, and agile startups to build durable digital systems.
+    </p>
+  </div>
+</section>
+
+<!-- ============ CLIENTS GRID ============ -->
+<section class="section">
+  <div class="container">
+    <div class="clients-grid">
+      {% for client in clients %}
+        <div class="client-card">
+          <div class="client-badge">
+            {% if client.logo_filename %}
+              <img src="{{ client.logo_filename | media_url('clients') }}" alt="{{ client.name }} Logo" />
+            {% else %}
+              <span>{{ client.name[:3] | upper }}</span>
+            {% endif %}
+          </div>
+          <h3 class="client-name">{{ client.name }}</h3>
+          <p class="client-location">{{ client.location or 'Enterprise Partner' }}</p>
+          {% if client.description %}
+            <p class="client-desc">{{ client.description }}</p>
+          {% endif %}
+          <div style="margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%;">
+            <span class="client-tag">{{ client.tag }}</span>
+            {% if client.website and client.website != '#' %}
+              <a href="{{ client.website }}" target="_blank" rel="noopener" style="font-size: 0.82rem; color: var(--teal); font-weight: 500;">Visit Organization &rarr;</a>
+            {% endif %}
+          </div>
+        </div>
+      {% else %}
+        <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+          <p style="color: var(--charcoal-70); font-size: 1.1rem;">No clients added yet. You can add client partners anytime through the <a href="{{ url_for('admin_login') }}" style="color: var(--gold); text-decoration: underline;">Admin Panel</a>.</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Partnership Philosophy -->
+    <div style="margin-top: 70px; background: var(--cream-2); border: 1px solid var(--cream-3); border-radius: var(--radius-l); padding: 48px;">
+      <div style="max-width: 760px; margin: 0 auto; text-align: center;">
+        <span class="eyebrow">Our Engagement Standard</span>
+        <h2 style="font-size: 1.8rem; margin-bottom: 16px;">How We Work With Our Partners</h2>
+        <p style="color: var(--charcoal-70); font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">
+          We treat every project as an enduring partnership rather than a one-time transaction. We provide transparent weekly progress demonstrations, dedicated engineer support, direct founder involvement, and post-launch SLA maintenance.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="{{ url_for('contact') }}" class="btn btn-primary">Partner With JarmFabs</a>
+          <a href="https://wa.me/{{ company_phone_clean }}" target="_blank" class="btn btn-whatsapp">Chat on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
